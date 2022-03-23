@@ -6,8 +6,8 @@ Before Start Lab:
 
 Part 1: Host Path Debug Program
 ---------------------------------------------------------------------------------------------------------------
-1. Check folder "Workshop-1-7-Volume" by command
-	ls ~/kubernetes_20220401_5Days/Workshop-1-7-Volume
+1. Check folder "Workshop_1-7-Volume" by command
+	ls ~/kubernetes_20220401_5Days/Workshop_1-7-Volume
 
 2. Pull image of container for operate by command: "docker image pull labdocker/alpine:latest"
 3. Run container with mapping volume by command:
