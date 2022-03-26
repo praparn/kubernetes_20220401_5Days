@@ -21,7 +21,23 @@ Note: This instruction will start lab for kubernetes's cluster for real workshop
 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     sudo lsmod | grep -e ip_vs -e nf_conntrack_ipv4
 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    *Option3: Check cilium & hubble install (IF not run script below for setup binary)
+	------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  	#Cilium Cli
+  	curl -L --remote-name-all https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz{,.sha256sum}
+  	sha256sum --check cilium-linux-amd64.tar.gz.sha256sum
+  	sudo tar xzvfC cilium-linux-amd64.tar.gz /usr/local/bin
+  	rm cilium-linux-amd64.tar.gz{,.sha256sum}
 
+  	#Hubble Cli
+  	export HUBBLE_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/hubble/master/stable.txt)
+  	curl -L --remote-name-all https://github.com/cilium/hubble/releases/download/$HUBBLE_VERSION/hubble-linux-amd64.tar.gz{,.sha256sum}
+  	sha256sum --check hubble-linux-amd64.tar.gz.sha256sum
+  	sudo tar xzvfC hubble-linux-amd64.tar.gz /usr/local/bin
+  	rm hubble-linux-amd64.tar.gz{,.sha256sum}
+  	--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+====================================================
 1. Check "LAB" sheet for your group and inform your team for all node information like below:
 ====================================================
 Lab Description: (Check you excel sheet)
@@ -123,12 +139,12 @@ UDP  ip-10-96-0-10.ap-southeast-1 rr
 ========================================  Create Dashboard =====================================================================
 11. (Master) Create Dashboard by command:
 	kubectl create namespace kubernetes-dashboard
-	kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/kubernetes_20220401_5Days/WorkShop_5-1_Resource_Management/cert -n kubernetes-dashboard
-	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_3.7_Resource_Management/dashboard-restrict.yml
+	kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/kubernetes_20220401_5Days/WorkShop_3-7_Resource_Management/cert -n kubernetes-dashboard
+	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_3-7_Resource_Management/dashboard-restrict.yml
 	watch kubectl get all -n=kubernetes-dashboard
 
 12. (Master) Check Bearer Token for access by command:
-	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_3.7_Resource_Management/user-restrict.yml
+	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_3-7_Resource_Management/user-restrict.yml
 	kubectl get secret -n kubernetes-dashboard
 	kubectl describe secret <admin-user-token-xxx> -n kubernetes-dashboard
 	*Remark: Record Token:
@@ -308,8 +324,8 @@ ingress-nginx-controller-admission   ClusterIP      10.97.28.203   <none>       
 
 28. (Master) Test deploy ingress service
 # Create Service/Pods/Deployment for webtest1 and webtest2 by command:
-	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4.4_Ingress_Network/webtest_deploy.yml
-	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4.4_Ingress_Network/webtest_deploy2.yml
+	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4-4_Ingress_Network/webtest_deploy.yml
+	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4-4_Ingress_Network/webtest_deploy2.yml
 
 # View service for connection by command:
 	kubectl get svc -o wide

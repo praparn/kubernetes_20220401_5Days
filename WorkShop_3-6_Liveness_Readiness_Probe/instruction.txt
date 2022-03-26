@@ -44,7 +44,7 @@ Part 2: TCPSocket Probe
 This workshop will use TCPSocket some command on container for probe
 ====================================================
 1. Create Deployment and check status by command:
-	cd ~/kubernetes_20220401_5Days/WorkShop_1.6_Liveness_Readiness_Probe/
+	cd ~/kubernetes_20220401_5Days/WorkShop_3-6_Liveness_Readiness_Probe/
 	kubectl apply -f webtest_deploy_liveness_readiness_port.yml
 	kubectl get deployment/webtest
 	kubectl get pods --show-labels
@@ -80,7 +80,7 @@ Part 3: HTTPGet Probe
 This workshop will use http get request some command on container for probe
 ====================================================
 1. Create Deployment and check status by command:
-	cd ~/kubernetes_20220401_5Days/WorkShop_1.6_Liveness_Readiness_Probe/
+	cd ~/kubernetes_20220401_5Days/WorkShop_3-6_Liveness_Readiness_Probe/
 	kubectl apply -f webtest_deploy_liveness_readiness_http.yml 
 	kubectl get deployment/webtest
 	kubectl get pods --show-labels
