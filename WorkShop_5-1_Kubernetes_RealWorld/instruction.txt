@@ -331,7 +331,7 @@ ingress-nginx-controller-admission   ClusterIP      10.97.28.203   <none>       
 	kubectl get svc -o wide
 
 # Create ingress for access by command:
-	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4.4_Ingress_Network/ingress_webtest.yml
+	kubectl create -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4-4_Ingress_Network/ingress_webtest.yml
 	kubectl get ing -o wide
 	kubectl describe ing/ingresswebtest
 
@@ -340,11 +340,11 @@ ingress-nginx-controller-admission   ClusterIP      10.97.28.203   <none>       
 	curl http://<CNAME AWS's ELB> -H 'Host:webtest2.kuberneteslabthailand.com'
 
 30. (Master) Delete Ingress by command:
-	kubectl delete -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4.4_Ingress_Network/ingress_webtest.yml
+	kubectl delete -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4-4_Ingress_Network/ingress_webtest.yml
 	
 31. (Master) Clean Up Lab:
-	kubectl delete -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4.4_Ingress_Network/webtest_deploy.yml
-	kubectl delete -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4.4_Ingress_Network/webtest_deploy2.yml
+	kubectl delete -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4-4_Ingress_Network/webtest_deploy.yml
+	kubectl delete -f https://raw.githubusercontent.com/praparn/kubernetes_20220401_5Days/master/WorkShop_4-4_Ingress_Network/webtest_deploy2.yml
 
 32. (Master) Install cert-manager for kubernetes:
     kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.7.1/cert-manager.yaml
